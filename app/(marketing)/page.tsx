@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import Image from "next/image";
@@ -29,8 +31,7 @@ export default function Home() {
           <SignedOut>
             <SignUpButton
               mode="modal"
-              afterSignInUrl="/learn"
-              afterSignUpUrl="/learn"
+              forceRedirectUrl="/learn"
             >
               <Button size="lg" variant="secondary" className="w-full">
                 Get Started
@@ -38,8 +39,7 @@ export default function Home() {
             </SignUpButton>
                <SignInButton
               mode="modal"
-              afterSignInUrl="/learn"
-              afterSignUpUrl="/learn"
+              forceRedirectUrl="/learn"
             >
               <Button size="lg" variant="primaryOutline" className="w-full">
                 I already have an account
