@@ -1,4 +1,3 @@
-
 import { redirect } from "next/navigation";
 
 import { FeedWrapper } from "@/components/feed-wrapper";
