@@ -9,6 +9,7 @@ import {
   timestamp,
 } from "drizzle-orm/pg-core";
 
+// import { MAX_HEARTS } from "@/constants";
 const MAX_HEARTS = 5;
 
 export const courses = pgTable("courses", {
