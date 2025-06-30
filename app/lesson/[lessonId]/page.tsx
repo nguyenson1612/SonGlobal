@@ -4,8 +4,14 @@ import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Quiz } from "../quiz";
 
-const LessonIdPage = async () => {
-  const lessonData = getLesson();
+type LessonIdPageProps = {
+  params: {
+    lessonId: number;
+  };
+};
+
+const LessonIdPage = async ({ params }: LessonIdPageProps) => {
+  const lessonData = getLesson(params.lessonId);
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
 
