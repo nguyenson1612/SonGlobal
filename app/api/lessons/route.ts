@@ -2,11 +2,11 @@ import { type NextRequest, NextResponse } from "next/server";
 
 import db from "@/db/drizzle";
 import { lessons } from "@/db/schema";
-import { getIsAdmin } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin";
 
 export const GET = async () => {
-  const isAdmin = await getIsAdmin();
-  if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
+  const isAdminUser = await isAdmin();
+  if (!isAdminUser) return new NextResponse("Unauthorized.", { status: 401 });
 
   const data = await db.query.lessons.findMany();
 
@@ -14,8 +14,8 @@ export const GET = async () => {
 };
 
 export const POST = async (req: NextRequest) => {
-  const isAdmin = await getIsAdmin();
-  if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
+  const isAdminUser = await isAdmin();
+  if (!isAdminUser) return new NextResponse("Unauthorized.", { status: 401 });
 
   const body = (await req.json()) as typeof lessons.$inferSelect;
 

@@ -1,18 +1,15 @@
-import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
-
-import { getIsAdmin } from "@/lib/admin";
-
-const App = dynamic(() => import("./app"), { ssr: false });
+import { isAdmin } from "@/lib/admin";
+import AdminAppClient from "./AdminAppClient";
 
 const AdminPage = async () => {
-  const isAdmin = await getIsAdmin();
+  const isAdminUser = await isAdmin();
 
-  if (!isAdmin) redirect("/");
+  if (!isAdminUser) redirect("/");
 
   return (
     <div>
-      <App />
+      <AdminAppClient />
     </div>
   );
 };
