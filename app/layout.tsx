@@ -6,7 +6,7 @@ import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
 import { PracticeModal } from "@/components/modals/practice-modal";
 import { Toaster } from "@/components/ui/sonner";
-import { siteConfig } from "../config/site";
+import { siteConfig } from "@/config/index";
 
 import "./globals.css";
 
