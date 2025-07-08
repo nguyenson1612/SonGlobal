@@ -12,6 +12,12 @@ import {
 // import { MAX_HEARTS } from "@/constants";
 const MAX_HEARTS = 5;
 
+export const users = pgTable("users", { // TODO: add user table
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  imageSrc: text("image_src").notNull(),
+});   
 export const courses = pgTable("courses", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
